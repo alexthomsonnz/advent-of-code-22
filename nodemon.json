@@ -1,0 +1,5 @@
+{
+    "watch": ["day"],
+    "ext": ".ts,.js,.txt",
+    "ignore": []
+}
