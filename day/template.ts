@@ -1,4 +1,6 @@
-import * as fs from "fs";
+import fs from "fs";
+import assert from "assert";
+import path from "path";
 
 function part1(input: string) {
     const rows = input.split("\n");
@@ -20,14 +22,15 @@ function part2(input: string) {
     return answer;
 }
 
-async function main() {
-    let content = fs.readFileSync(`./template.txt`).toString();
+function main() {
+    let content = fs
+        .readFileSync(path.join(__dirname, `./template.txt`))
+        .toString();
 
     const part1Answer = part1(content.toString());
-    console.log("\n\nPart 1 Answer\n");
-    console.log(part1Answer);
+    console.log("\n\nPart 1 Answer:", part1Answer);
+
     const part2Answer = part2(content.toString());
-    console.log("\n\nPart 2 Answer\n");
-    console.log(part2Answer);
+    console.log("\n\nPart 2 Answer:", part2Answer);
 }
 main();

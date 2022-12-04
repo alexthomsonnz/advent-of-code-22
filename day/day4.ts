@@ -43,7 +43,7 @@ function part2(input: string) {
     return answer;
 }
 
-async function main() {
+function main() {
     let content = fs.readFileSync(`./inputs/day4/part1.txt`).toString();
 
     const part1Answer = part1(content.toString());

@@ -70,15 +70,14 @@ function part2(input: string) {
     array.forEach((row) => {
         const [a, b] = row.split(" ");
         let choice = whatIShouldPick[`${a}${b}`];
-        let result = answers[`${a}${choice}`];
         score += whatIChose(choice!);
-        score += result;
+        score += answers[`${a}${choice}`];
     });
 
     return score.toString();
 }
 
-async function main() {
+function main() {
     let content = fs
         .readFileSync(path.join(__dirname, `./day2.txt`))
         .toString();

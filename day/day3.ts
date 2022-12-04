@@ -83,7 +83,7 @@ function part2(input: string) {
     return answer.toString();
 }
 
-async function main() {
+function main() {
     let content = fs
         .readFileSync(path.join(__dirname, `./day3.txt`))
         .toString();
