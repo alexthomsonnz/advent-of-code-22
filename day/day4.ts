@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import path from "path";
 
 function part1(input: string) {
     const rows = input.split("\n");
@@ -24,6 +25,7 @@ function part2(input: string) {
     let answer = 0;
 
     rows.forEach((row, index) => {
+        "10-58,58-75";
         const [elf1, elf2] = row.split(",");
         const [elf1L, elf1H] = elf1.split("-").map((n) => Number(n));
         const [elf2L, elf2H] = elf2.split("-").map((n) => Number(n));
@@ -44,7 +46,9 @@ function part2(input: string) {
 }
 
 function main() {
-    let content = fs.readFileSync(`./inputs/day4/part1.txt`).toString();
+    let content = fs
+        .readFileSync(path.join(__dirname, "./day4.txt"))
+        .toString();
 
     const part1Answer = part1(content.toString());
     console.log("\n\nPart 1 Answer\n");
