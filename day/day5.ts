@@ -1,20 +1,20 @@
 import fs from "fs";
 import path from "path";
 
+const stacksInput = {
+    1: "SZPDLBFC",
+    2: "NVGPHWB",
+    3: "FWBJG",
+    4: "GJNFLWCS",
+    5: "WJLTPMSH",
+    6: "BCWGFS",
+    7: "HTPMQBW",
+    8: "FSWT",
+    9: "NCR",
+};
 function part1(input: string) {
-    const stacks = {
-        1: "SZPDLBFC",
-        2: "NVGPHWB",
-        3: "FWBJG",
-        4: "GJNFLWCS",
-        5: "WJLTPMSH",
-        6: "BCWGFS",
-        7: "HTPMQBW",
-        8: "FSWT",
-        9: "NCR",
-    };
     const rows = input.split("\n");
-    let answer = "";
+    const stacks = { ...stacksInput };
 
     rows.forEach((row, index) => {
         const [amount, from, to] = row
@@ -32,7 +32,7 @@ function part1(input: string) {
         stacks[to] += moving;
     });
 
-    answer = Object.values(stacks)
+    const answer = Object.values(stacks)
         .map((stack) => {
             return stack.charAt(stack.length - 1);
         })
@@ -42,23 +42,8 @@ function part1(input: string) {
 }
 
 function part2(input: string) {
-    function reverse(s: string): string {
-        return s.split("").reverse().join("");
-    }
-
-    const stacks = {
-        1: "SZPDLBFC",
-        2: "NVGPHWB",
-        3: "FWBJG",
-        4: "GJNFLWCS",
-        5: "WJLTPMSH",
-        6: "BCWGFS",
-        7: "HTPMQBW",
-        8: "FSWT",
-        9: "NCR",
-    };
     const rows = input.split("\n");
-    let answer = "";
+    const stacks = { ...stacksInput };
 
     rows.forEach((row, index) => {
         const [amount, from, to] = row
@@ -72,13 +57,14 @@ function part2(input: string) {
             moving += fromStackArr.pop();
         }
 
-        moving = reverse(moving);
+        // Only part 2 difference lol
+        moving = moving.split("").reverse().join("");
 
         stacks[from] = fromStackArr.join("");
         stacks[to] += moving;
     });
 
-    answer = Object.values(stacks)
+    const answer = Object.values(stacks)
         .map((stack) => {
             return stack.charAt(stack.length - 1);
         })
