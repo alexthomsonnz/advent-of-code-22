@@ -7,7 +7,8 @@
         "2": "nodemon day/day2.ts",
         "3": "nodemon day/day3.ts",
         "4": "nodemon day/day4.ts",
-        "5": "nodemon day/day5.ts"
+        "5": "nodemon day/day5.ts",
+        "6": "nodemon day/day6.ts"
     },
     "dependencies": {
         "@types/node": "^16.11.10",
