@@ -22,15 +22,10 @@ function part2(input: string) {
     return answer;
 }
 
-function main() {
-    let content = fs
-        .readFileSync(path.join(__dirname, `./day--.txt`))
-        .toString();
+let content = fs.readFileSync(path.join(__dirname, `./day--.txt`)).toString();
 
-    const part1Answer = part1(content.toString());
-    console.log("\n\nPart 1 Answer:", part1Answer);
+const part1Answer = part1(content.toString());
+console.log("\n\nPart 1 Answer:", part1Answer);
 
-    const part2Answer = part2(content.toString());
-    console.log("\n\nPart 2 Answer:", part2Answer);
-}
-main();
+const part2Answer = part2(content.toString());
+console.log("\n\nPart 2 Answer:", part2Answer);
