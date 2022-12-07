@@ -24,7 +24,7 @@ function part2(input: string) {
 
 function main() {
     let content = fs
-        .readFileSync(path.join(__dirname, `./template.txt`))
+        .readFileSync(path.join(__dirname, `./day--.txt`))
         .toString();
 
     const part1Answer = part1(content.toString());
