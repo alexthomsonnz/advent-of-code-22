@@ -18,13 +18,16 @@ function isVisibleInLine(line: Array<number>, index: number): boolean {
 function scoreForLine(line: Array<number>, index: number): number {
     const height = line[index];
 
+    // Get array of heights before the tree, not including the index.
     const beforeArray = line.slice(0, index).reverse();
+    // Get array of heights after the tree, not including the index.
     const afterArray = [...line]
         .reverse()
         .slice(0, line.length - 1 - index)
         .reverse();
 
     let beforeScore = 0;
+    // Loop from closest tree
     while (beforeArray.length > 0) {
         if (beforeArray[0] >= height) {
             beforeScore += 1;
@@ -45,19 +48,25 @@ function scoreForLine(line: Array<number>, index: number): number {
     return afterScore * beforeScore;
 }
 
-function part1(input: string) {
-    const rows = input.split("\n");
-    let answer = 0;
-
+function makeTreesMatrix(rows): TreeMatrix {
     const trees: TreeMatrix = [];
-
     rows.forEach((row, index) => {
         trees[index] = [];
         row.split("").forEach((height) => {
             trees[index].push(parseInt(height, 10));
         });
     });
+    console.log("Trees Matrix");
     console.log(trees);
+    return;
+}
+
+function part1(input: string) {
+    const rows = input.split("\n");
+    let answer = 0;
+
+    const trees: TreeMatrix = makeTreesMatrix(rows);
+
     for (let row = 0; row < trees.length; row++) {
         // get column as row;
         const rowLine = trees[row];
@@ -79,17 +88,9 @@ function part1(input: string) {
 
 function part2(input: string) {
     const rows = input.split("\n");
-    let answer = 0;
 
-    const trees: TreeMatrix = [];
+    const trees: TreeMatrix = makeTreesMatrix(rows);
 
-    rows.forEach((row, index) => {
-        trees[index] = [];
-        row.split("").forEach((height) => {
-            trees[index].push(parseInt(height, 10));
-        });
-    });
-    console.log(trees);
     const scores: number[] = [];
     for (let row = 0; row < trees.length; row++) {
         const rowLine = trees[row];
@@ -100,12 +101,7 @@ function part2(input: string) {
 
             let score = 0;
 
-            let log = false;
-            if (trees[row][col] === 5) {
-                log = true;
-            }
-
-            // Get scenic score
+            // Get scenic score for tree
             score = scoreForLine(columnLine, row) * scoreForLine(rowLine, col);
 
             scores.push(score);
