@@ -169,37 +169,6 @@ function main(input: string) {
         getMonkeyBusiness(monkeyDict, (num) => Math.floor(num / 3), 20)
     );
 
-    // Part 2
-    // Going to leave this here. I was trying to bruteforce guess a new worry function to use
-    // For whatever reason, js was happy to run this 10,000 times, but it gave me the monkeyBusiness number?
-
-    // Make some random worry functions
-    // const worryFunctions = [(num) => num];
-    // for (let i = 0; i < 100000; i++) {
-    //     // worryFunctions.push((num) => num / i);
-    //     // worryFunctions.push((num) => num - i);
-    //     worryFunctions.push((num) => num % i);
-    // }
-
-    // let candidateWorryFunctions: Array<(num: number) => number> = [];
-    // worryFunctions.forEach((func) => {
-    //     monkeyDict = setupMonkeyDict(input);
-    //     const inspections = doRound(monkeyDict, func);
-    //     if (inspections[0] === 6 && inspections[1] === 4) {
-    //         // Found one that worked
-    //         candidateWorryFunctions.push(func);
-    //     }
-    // });
-
-    // candidateWorryFunctions.forEach((func) => {
-    //     if (!!worryFunction) return;
-    //     monkeyDict = setupMonkeyDict(input);
-    //     if (getMonkeyBusiness(monkeyDict, func as any, 10000) === 2713310158) {
-    //         // Found THE function
-    //         worryFunction = func;
-    //     }
-    // });
-
     monkeyDict = setupMonkeyDict(input);
 
     let mod = 1;
