@@ -2,7 +2,6 @@
     "name": "adventofcode2022",
     "description": "https://adventofcode.com/2021",
     "scripts": {
-        "template": "nodemon day/template.ts",
         "1": "nodemon day/day1.ts",
         "2": "nodemon day/day2.ts",
         "3": "nodemon day/day3.ts",
@@ -12,7 +11,9 @@
         "7": "nodemon day/day7.ts",
         "8": "nodemon day/day8.ts",
         "9": "nodemon day/day9.ts",
-        "10": "nodemon day/day10.ts"
+        "10": "nodemon day/day10.ts",
+        "11": "nodemon day/day11.ts",
+        "template": "nodemon day/template.ts"
     },
     "dependencies": {
         "@types/node": "^16.11.10",
