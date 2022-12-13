@@ -13,6 +13,8 @@
         "9": "nodemon day/day9.ts",
         "10": "nodemon day/day10.ts",
         "11": "nodemon day/day11.ts",
+        "12": "nodemon day/day12.ts",
+        "13": "nodemon day/day13.ts",
         "template": "nodemon day/template.ts"
     },
     "dependencies": {
